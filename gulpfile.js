@@ -82,6 +82,7 @@ gulp.task('img-compress', ()=> {
    .pipe(gulp.dest('./build/img/'))
 })
 
+
 //Таск для отслеживания изменений в файлах
 gulp.task('watch', () => {
    browserSync.init({
