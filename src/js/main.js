@@ -103,7 +103,7 @@ function actionPage() {
 
 function getData() {
     let goodsWrapper = document.querySelector('.goods')
-    return fetch(`ozonShop/../../db.json`).then((res) => {
+    return fetch("../../db.json").then((res) => {
             if (res.ok) {
                 return res.json();
             } else {
