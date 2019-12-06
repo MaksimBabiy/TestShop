@@ -103,7 +103,7 @@ function actionPage() {
 
 function getData() {
     let goodsWrapper = document.querySelector('.goods')
-    return fetch("../../db.json").then((res) => {
+    return fetch("http://5dea5f9e0710f800142102b9.mockapi.io/posts").then((res) => {
             if (res.ok) {
                 return res.json();
             } else {
@@ -121,15 +121,16 @@ function getData() {
 
 function renderCards(data) {
     let goodsWrapper = document.querySelector('.goods')
-    data.goods.forEach(item => {
+    console.log(data)
+    data.forEach(item => {
         let card = document.createElement('div')
         card.className = "col-12 col-md-6 col-lg-4 col-xl-3"
         card.innerHTML = `
-    <div class="card" data-category = "${item.category}">
+    <div class="card" data-category = "${item.description}">
         ${item.sale ? `<div class="card-sale">🔥Hot Sale🔥</div>` : ''}
         <div class="card-img-wrapper">
             <span class="card-img-top"
-                style="background-image: url('${item.img}')"></span>
+                style="background-image: url('${item.image}')"></span>
         </div>
         <div class="card-body justify-content-between">
             <div class="card-price" style = "${item.sale ? 'color : red' : ''}">${item.price} ₽</div>
